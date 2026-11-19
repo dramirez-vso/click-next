@@ -15,7 +15,7 @@ Waits for the Next button to turn dark, clicks it once, and changes the tab titl
 3. If clicking Next loads a new page, click the favorite again there.
 
 ```
-javascript:(()=>{const f=()=>{const ds=[document];for(const i of document.querySelectorAll('iframe'))try{if(i.contentDocument)ds.push(i.contentDocument)}catch(x){}for(const d of ds)for(const e of d.querySelectorAll('button,a,[role="button"]')){if(!/^\s*next\s*[>›]?\s*$/i.test(e.textContent)||e.disabled||e.getAttribute('aria-disabled')==='true')continue;const[r,g,b]=d.defaultView.getComputedStyle(e).color.match(/\d+/g).map(Number);if((r*299+g*587+b*114)/1000<140)return e}};const t=setInterval(()=>{const e=f();if(e){clearInterval(t);e.click();document.title='CLICKED NEXT'}},1000);document.title='Watching for Next...'})()
+javascript:(()=>{const f=()=>{const ds=[document];for(const i of document.querySelectorAll('iframe'))try{if(i.contentDocument)ds.push(i.contentDocument)}catch(x){}for(const d of ds)for(const e of d.querySelectorAll('button,a,[role="button"]')){if(!/^\s*next\s*[>\u203a]?\s*$/i.test(e.textContent)||e.disabled||e.getAttribute('aria-disabled')==='true')continue;const[r,g,b]=d.defaultView.getComputedStyle(e).color.match(/\d+/g).map(Number);if((r*299+g*587+b*114)/1000<140)return e}};const t=setInterval(()=>{const e=f();if(e){clearInterval(t);e.click();document.title='CLICKED NEXT'}},1000);document.title='Watching for Next...'})()
 ```
 
 If favorites can't run scripts, press **F12**, open **Console**, and paste the code
